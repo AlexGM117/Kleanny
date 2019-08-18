@@ -10,10 +10,11 @@
         <item name="editTextStyle">@style/StandardEditTextStyle</item>
         <item name="android:textViewStyle">@style/StandardTextViewStyle</item>
         <item name="checkboxStyle">@style/StandardCheckBoxStyle</item>
+        <item name="buttonStyle">@style/StandardButtonStyle</item>
     </style>
 
     <!--Estilo para los botones de formularios-->
-    <style name="StandardButtonStyle" parent="Base.Widget.AppCompat.Button">
+    <style name="FormsButtonStyle" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_bg_rounded_corners</item>
         <item name="android:textColor">@color/colorButtonText</item>
         <item name="android:fontFamily">@font/FredokaOne_Regular</item>
@@ -29,6 +30,10 @@
         <item name="android:fontFamily">@font/Poppins_Regular</item>
     </style>
     <style name="StandardCheckBoxStyle" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/Poppins_Regular</item>
+    </style>
+
+    <style name="StandardButtonStyle" parent="android:Widget.Button">
         <item name="android:fontFamily">@font/Poppins_Regular</item>
     </style>
 

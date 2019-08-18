@@ -51,7 +51,7 @@
 
     <Button
             android:id="@+id/button_create_account"
-            style="@style/StandardButtonStyle"
+            style="@style/FormsButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/crear_cuenta"

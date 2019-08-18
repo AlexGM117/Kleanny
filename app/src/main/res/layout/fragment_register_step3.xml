@@ -58,7 +58,7 @@
             android:id="@+id/button_continuar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/StandardButtonStyle"
+            style="@style/FormsButtonStyle"
             android:text="@string/continuar"
             android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
