@@ -6,9 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--personalización de los editText que vienen por default-->
+        <!--personalización de los textos que vienen por default-->
         <item name="editTextStyle">@style/StandardEditTextStyle</item>
         <item name="android:textViewStyle">@style/StandardTextViewStyle</item>
+        <item name="checkboxStyle">@style/StandardCheckBoxStyle</item>
     </style>
 
     <!--Estilo para los botones de formularios-->
@@ -25,6 +26,9 @@
     </style>
 
     <style name="StandardTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/Poppins_Regular</item>
+    </style>
+    <style name="StandardCheckBoxStyle" parent="android:Widget.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/Poppins_Regular</item>
     </style>
 
