@@ -17,24 +17,24 @@
     <style name="FormsButtonStyle" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_bg_rounded_corners</item>
         <item name="android:textColor">@color/colorButtonText</item>
-        <item name="android:fontFamily">@font/FredokaOne_Regular</item>
+        <item name="android:fontFamily">@font/fredoka_one_regular</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
 
     <style name="StandardEditTextStyle" parent="Base.V7.Widget.AppCompat.EditText">
-        <item name="android:fontFamily">@font/Poppins_Regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="StandardTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">@font/Poppins_Regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
     <style name="StandardCheckBoxStyle" parent="android:Widget.CompoundButton.CheckBox">
-        <item name="android:fontFamily">@font/Poppins_Regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="StandardButtonStyle" parent="android:Widget.Button">
-        <item name="android:fontFamily">@font/Poppins_Regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
 </resources>
