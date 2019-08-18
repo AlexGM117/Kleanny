@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Estilo para los botones de formularios-->
+    <style name="StandardButtonStyle" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_bg_rounded_corners</item>
+        <item name="android:textColor">@color/colorButtonText</item>
+        <item name="android:fontFamily">@font/FredokaOne_Regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
 </resources>

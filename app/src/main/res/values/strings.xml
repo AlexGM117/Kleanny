@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Kleanny</string>
+
+    <!--fragment_register_step1-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="repetir_contrasena">Repetir contraseña</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <!--fragment_register_step1-->
+
+    <!--fragment_register_step2-->
+    <string name="dni">DNI</string>
+    <string name="nombre">Nombre</string>
+    <string name="primer_apellido">Primer apellido</string>
+    <string name="segundo_apellido">Segundo apellido</string>
+    <string name="direccion">Dirección</string>
+    <string name="terminos_condiciones">He leído y acepto los Términos y condiciones de uso.</string>
+    <string name="continuar">Continuar</string>
+    <!--fragment_register_step2-->
+
+    <!--fragment_register_step3-->
+    <string name="telefono">Teléfono</string>
+    <string name="agrega_codigo_validacion">Agrega tu código de validación</string>
+    <string name="codigo_validacion">Código de validación</string>
+    <!--fragment_register_step2-->
+
 </resources>
