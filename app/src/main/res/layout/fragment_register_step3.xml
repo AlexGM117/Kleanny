@@ -13,6 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/telefono"
+            android:drawableStart="@drawable/ic_local_phone"
+            android:drawablePadding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -23,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/agrega_codigo_validacion"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,12 +42,24 @@
             app:layout_constraintTop_toBottomOf="@id/textView_codigo_validacion"
             android:autofillHints="phone"/>
 
+    <TextView
+            android:id="@+id/textView_no_recibí_codigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_recibi_codigo"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/button_continuar"/>
+
     <Button
             android:id="@+id/button_continuar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/StandardButtonStyle"
             android:text="@string/continuar"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

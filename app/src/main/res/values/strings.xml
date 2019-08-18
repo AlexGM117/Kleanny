@@ -23,6 +23,7 @@
     <string name="telefono">Teléfono</string>
     <string name="agrega_codigo_validacion">Agrega tu código de validación</string>
     <string name="codigo_validacion">Código de validación</string>
+    <string name="no_recibi_codigo">No recibí ningún código</string>
     <!--fragment_register_step2-->
 
 </resources>
