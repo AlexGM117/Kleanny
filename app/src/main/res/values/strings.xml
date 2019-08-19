@@ -26,8 +26,12 @@
     <string name="no_recibi_codigo">No recibí ningún código</string>
     <!--fragment_register_step2-->
 
+    <!--fragment_login-->
     <string name="login_text">Login</string>
     <string name="input_email">e-mail</string>
     <string name="input_password">Contraseña</string>
+    <string name="no_estas_registrado">¿No estas registrado?</string>
+    <string name="unete">¡Únete!</string>
+    <!--fragment_login-->
 
 </resources>
