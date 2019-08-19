@@ -1,16 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!--personalización de los textos que vienen por default-->
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
         <item name="editTextStyle">@style/StandardEditTextStyle</item>
         <item name="android:textViewStyle">@style/StandardTextViewStyle</item>
         <item name="checkboxStyle">@style/StandardCheckBoxStyle</item>
         <item name="buttonStyle">@style/StandardButtonStyle</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme" >
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <!--Estilo para los botones de formularios-->

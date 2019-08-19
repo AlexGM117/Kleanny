@@ -26,4 +26,8 @@
     <string name="no_recibi_codigo">No recibí ningún código</string>
     <!--fragment_register_step2-->
 
+    <string name="login_text">Login</string>
+    <string name="input_email">e-mail</string>
+    <string name="input_password">Contraseña</string>
+
 </resources>
