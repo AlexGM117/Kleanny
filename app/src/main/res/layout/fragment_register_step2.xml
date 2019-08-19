@@ -8,65 +8,95 @@
         android:padding="@dimen/margin_fragments"
         tools:context=".Register.RegisterStep2Fragment">
 
-    <EditText
-            android:id="@+id/editText_dni"
-            android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputDni"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/dni"
-            android:drawableStart="@drawable/ic_dni"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-            android:id="@+id/editText_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombre"
-            android:drawableStart="@drawable/ic_person_black"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/editText_dni"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dni"
+                android:drawableStart="@drawable/ic_dni"
+                android:drawablePadding="10dp"
+                android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-            android:id="@+id/editText_primer_apellido"
-            android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputNombre"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/primer_apellido"
-            android:drawableStart="@drawable/ic_person_black"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/editText_nombre"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/inputDni"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-            android:id="@+id/editText_segundo_apellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/segundo_apellido"
-            android:drawableStart="@drawable/ic_person_black"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/editText_primer_apellido"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nombre"
+                android:drawableStart="@drawable/ic_person_black"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-            android:id="@+id/editText_direccion"
-            android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputPrimerApellido"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/direccion"
-            android:drawableStart="@drawable/ic_address"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/editText_segundo_apellido"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/inputNombre"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/primer_apellido"
+                android:drawableStart="@drawable/ic_person_black"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputSegundoApellido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/inputPrimerApellido"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/segundo_apellido"
+                android:drawableStart="@drawable/ic_person_black"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputDireccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/inputSegundoApellido"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/direccion"
+                android:drawableStart="@drawable/ic_address"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
             android:layout_width="wrap_content"

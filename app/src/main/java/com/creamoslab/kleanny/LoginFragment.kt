@@ -28,7 +28,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val spannableString = SpannableString("¿No estas registrado? Únete")
-        spannableString.setSpan(ForegroundColorSpan(Color.WHITE), 22, 27, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(ForegroundColorSpan(Color.parseColor("#358cc3")), 22, 27, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         textView3.text = spannableString
     }
 }
