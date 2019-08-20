@@ -1,6 +1,5 @@
 package com.creamoslab.kleanny
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -23,5 +22,20 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val spannableString = SpannableString(resources.getString(R.string.text_sign_up))
+        spannableString.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorPrimary)), 22, 28, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        textSignUp.text = spannableString
+
+        textSignUp.setOnClickListener {
+            //TODO To Sign Up flow
+        }
+
+        buttonLogin.setOnClickListener {
+            //
+        }
     }
 }
