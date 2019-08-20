@@ -30,7 +30,7 @@
             android:id="@+id/textView_codigo_validacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/agrega_codigo_validacion"
+            android:text="@string/add_validation_code"
             android:textSize="18sp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/codigo_validacion"
+                android:hint="@string/validation_code"
                 android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +57,7 @@
             android:id="@+id/textView_no_recibí_codigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_recibi_codigo"
+            android:text="@string/code_not_received"
             android:textSize="18sp"
             android:layout_marginBottom="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/FormsButtonStyle"
-            android:text="@string/continuar"
+            android:text="@string/continue_button"
             android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

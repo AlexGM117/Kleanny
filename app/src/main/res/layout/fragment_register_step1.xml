@@ -69,7 +69,7 @@
             style="@style/FormsButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/crear_cuenta"
+            android:text="@string/create_account"
             android:layout_marginBottom="60dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

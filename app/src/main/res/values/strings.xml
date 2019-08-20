@@ -3,27 +3,27 @@
 
     <!--fragment_register_step1-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="correo_electronico">Correo electrónico</string>
-    <string name="contrasena">Contraseña</string>
-    <string name="repetir_contrasena">Repetir contraseña</string>
-    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="email_address">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="repeat_password">Repetir contraseña</string>
+    <string name="create_account">Crear cuenta</string>
     <!--fragment_register_step1-->
 
     <!--fragment_register_step2-->
     <string name="dni">DNI</string>
-    <string name="nombre">Nombre</string>
-    <string name="primer_apellido">Primer apellido</string>
-    <string name="segundo_apellido">Segundo apellido</string>
-    <string name="direccion">Dirección</string>
-    <string name="terminos_condiciones">He leído y acepto los Términos y condiciones de uso.</string>
-    <string name="continuar">Continuar</string>
+    <string name="name">Nombre</string>
+    <string name="first_last_name">Primer apellido</string>
+    <string name="second_last_name">Segundo apellido</string>
+    <string name="address">Dirección</string>
+    <string name="terms_and_conditions">He leído y acepto los Términos y condiciones de uso.</string>
+    <string name="continue_button">Continuar</string>
     <!--fragment_register_step2-->
 
     <!--fragment_register_step3-->
-    <string name="telefono">Teléfono</string>
-    <string name="agrega_codigo_validacion">Agrega tu código de validación</string>
-    <string name="codigo_validacion">Código de validación</string>
-    <string name="no_recibi_codigo">No recibí ningún código</string>
+    <string name="phone_number">Teléfono</string>
+    <string name="add_validation_code">Agrega tu código de validación</string>
+    <string name="validation_code">Código de validación</string>
+    <string name="code_not_received">No recibí ningún código</string>
     <!--fragment_register_step2-->
 
     <!--fragment_login-->

@@ -38,7 +38,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nombre"
+                android:hint="@string/name"
                 android:drawableStart="@drawable/ic_person_black"
                 android:drawablePadding="10dp"
                 android:inputType="textPersonName"/>
@@ -56,7 +56,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/primer_apellido"
+                android:hint="@string/first_last_name"
                 android:drawableStart="@drawable/ic_person_black"
                 android:drawablePadding="10dp"
                 android:inputType="textPersonName"/>
@@ -74,7 +74,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/segundo_apellido"
+                android:hint="@string/second_last_name"
                 android:drawableStart="@drawable/ic_person_black"
                 android:drawablePadding="10dp"
                 android:inputType="textPersonName"/>
@@ -92,7 +92,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/direccion"
+                android:hint="@string/address"
                 android:drawableStart="@drawable/ic_address"
                 android:drawablePadding="10dp"
                 android:inputType="textPersonName"/>
@@ -105,7 +105,7 @@
             android:autoSizeTextType="uniform"
             android:autoSizeMinTextSize="12sp"
             android:autoSizeMaxTextSize="20sp"
-            android:text="@string/terminos_condiciones"
+            android:text="@string/terms_and_conditions"
             android:textSize="18sp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@id/button_continuar"
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/FormsButtonStyle"
-            android:text="@string/continuar"
+            android:text="@string/continue_button"
             android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
