@@ -52,6 +52,7 @@
     <!--fragment_settings-->
     <string name="change_password">Cambiar Contraseña</string>
     <string name="finger_print">Huella digital</string>
+    <string name="auth_biometrics_finger">Autorizar operaciones con biométricos</string>
     <!--fragment_settings-->
 
     <!--fragment_change_password-->
