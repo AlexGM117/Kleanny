@@ -20,5 +20,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun loadLoginActivity() {
         startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }

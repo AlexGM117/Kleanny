@@ -1,0 +1,12 @@
+<layer-list
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size android:height="80dp"
+                android:width="80dp" />
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_account_nav"
+            android:bottom="5dp" />
+</layer-list>

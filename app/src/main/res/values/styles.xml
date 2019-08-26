@@ -13,7 +13,7 @@
         <item name="buttonStyle">@style/StandardButtonStyle</item>
     </style>
 
-    <style name="SplashTheme" parent="AppTheme" >
+    <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:windowFullscreen">true</item>
     </style>
@@ -34,6 +34,7 @@
     <style name="StandardTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
+
     <style name="StandardCheckBoxStyle" parent="android:Widget.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
@@ -41,5 +42,14 @@
     <style name="StandardButtonStyle" parent="android:Widget.Button">
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

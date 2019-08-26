@@ -13,8 +13,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadLoginFragment() {
-        val loginFragment = LoginFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, loginFragment).commit()
+        transaction.add(R.id.fragment_container, LoginFragment()).commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStack()
+        }
     }
 }
