@@ -1,4 +1,4 @@
-package com.creamoslab.kleanny
+package com.creamoslab.kleanny.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import com.creamoslab.kleanny.myaccount.*
+import com.creamoslab.kleanny.R
+import com.creamoslab.kleanny.ui.myaccount.*
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*

@@ -1,7 +1,5 @@
-package com.creamoslab.kleanny.myaccount
+package com.creamoslab.kleanny.ui.myaccount
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

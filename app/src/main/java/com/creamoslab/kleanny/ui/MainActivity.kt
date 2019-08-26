@@ -1,7 +1,8 @@
-package com.creamoslab.kleanny
+package com.creamoslab.kleanny.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.creamoslab.kleanny.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +15,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadLoginFragment() {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, LoginFragment()).commit()
+        transaction.add(
+            R.id.fragment_container,
+            LoginFragment()
+        ).commit()
     }
 
     override fun onBackPressed() {

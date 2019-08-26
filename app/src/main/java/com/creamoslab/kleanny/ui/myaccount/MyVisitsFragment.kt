@@ -1,4 +1,4 @@
-package com.creamoslab.kleanny.myaccount
+package com.creamoslab.kleanny.ui.myaccount
 
 
 import android.os.Bundle
@@ -9,14 +9,14 @@ import android.view.ViewGroup
 
 import com.creamoslab.kleanny.R
 
-class SettingsFragment : Fragment() {
+class MyVisitsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setitngs, container, false)
+        return inflater.inflate(R.layout.fragment_my_visits, container, false)
     }
 
 }
