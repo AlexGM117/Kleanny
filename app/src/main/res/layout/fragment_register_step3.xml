@@ -19,7 +19,7 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dni"
+                android:hint="@string/phone_number"
                 android:drawableStart="@drawable/ic_local_phone"
                 android:drawablePadding="10dp"
                 android:inputType="numberDecimal"/>
