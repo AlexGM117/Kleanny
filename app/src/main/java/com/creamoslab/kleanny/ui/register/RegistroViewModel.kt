@@ -8,9 +8,12 @@ import kotlinx.coroutines.launch
 
 class RegistroViewModel : BaseViewModel() {
 
+    val newUser = UsuarioRegistro()
+    val newUserData = UsuarioDatos()
+
     fun testRequest() {
         val usuarioRegistro = UsuarioRegistro()
-        usuarioRegistro.fecha = ""
+        usuarioRegistro.fecha = "aas"
         usuarioRegistro.contraseña = "CocoApps123"
         usuarioRegistro.correo = "chrisrm1984@hotmail.com"
         val usuarioDatos = UsuarioDatos()
@@ -21,6 +24,13 @@ class RegistroViewModel : BaseViewModel() {
         usuarioDatos.segundoApellido = "Martinez"
         usuarioDatos.telefono = "5512902842"
         val request = SignUpRequest("Colombia", usuarioRegistro, usuarioDatos)
+        scope.launch {
+            repository.makeRequest(request)
+        }
+    }
+
+    fun requestRegisterUser() {
+        val request = SignUpRequest("Colombia", newUser, newUserData)
         scope.launch {
             repository.makeRequest(request)
         }

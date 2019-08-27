@@ -17,6 +17,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/dni"
@@ -35,6 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -53,6 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextFirstLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/first_last_name"
@@ -71,6 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextSecondLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/second_last_name"
@@ -89,6 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/address"
