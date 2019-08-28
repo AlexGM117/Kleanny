@@ -77,7 +77,6 @@ class RegistroViewModel : BaseViewModel() {
         }
     }
 
-    fun requestRegisterUser() {
     fun requestRegisterUser() : LiveData<BaseResponse<Nothing>> {
         val result = MutableLiveData<BaseResponse<Nothing>>()
         val request = SignUpRequest("Colombia", newUser, newUserData)
