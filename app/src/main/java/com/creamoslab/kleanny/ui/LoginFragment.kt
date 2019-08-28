@@ -9,8 +9,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.register.RegisterStep1Fragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -18,6 +21,10 @@ import kotlinx.android.synthetic.main.fragment_login.*
  *
  */
 class LoginFragment : Fragment() {
+
+    private val mViewModel: LoginViewModel by lazy {
+        ViewModelProviders.of(this).get(LoginViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +46,19 @@ class LoginFragment : Fragment() {
         }
 
         buttonLogin.setOnClickListener {
-            startActivity(Intent(activity, HomeActivity::class.java))
-            activity?.finish()
+            mViewModel.makeLoginRequest(inputEmail.editText?.text.toString(),
+                inputPass.editText?.text.toString()).observe(this, Observer {
+                if (it.success || it.message == "Usuario Valido") {
+                    startActivity(Intent(activity, HomeActivity::class.java))
+                    activity?.finish()
+                } else {
+                    Snackbar.make(
+                        getView()!!, // Parent view
+                        it.message, // Message to show
+                        Snackbar.LENGTH_SHORT // How long to display the message.
+                    ).show()
+                }
+            })
         }
     }
 }
