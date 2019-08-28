@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.LoginFragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_register_step3.*
 
 class RegisterStep3Fragment : Fragment() {
@@ -24,8 +26,17 @@ class RegisterStep3Fragment : Fragment() {
 
     private fun addDataToModel() {
         model.newUserData.telefono = editTextPhone.text.toString()
-        model.requestRegisterUser()
-        returnToLogin()
+        model.requestRegisterUser().observe(this, Observer {
+            if (it.success && it.message == "Registro Guardado") {
+                returnToLogin()
+            } else {
+                Snackbar.make(
+                    getView()!!,
+                    it.message,
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 
     private fun returnToLogin() {

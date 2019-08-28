@@ -10,14 +10,10 @@ open class BaseRepository {
         val result = safeApiResult(call, errorMessage)
         when (result) {
             is Result.Success -> {
-                if (result.data.success) {
-                    return result.data
-                } else {
-                    return null
-                }
+                return result.data
             }
 
-            is Result.Error -> return null
+            is Result.Error -> return BaseResponse<T>(false, 1, errorMessage)
         }
     }
 
