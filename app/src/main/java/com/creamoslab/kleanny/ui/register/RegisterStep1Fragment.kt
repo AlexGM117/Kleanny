@@ -35,6 +35,16 @@ class RegisterStep1Fragment : Fragment() {
 
         editTextPassword.afterTextChanged { model.password1 = it }
 
+        editTextPassword.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus && !inputCurrentPassword.isPasswordVisibilityToggleEnabled) {
+                inputCurrentPassword.isPasswordVisibilityToggleEnabled = true
+            }
+
+            if (hasFocus && editTextPassword.error != null) {
+                editTextPassword.setError(getString(R.string.error_password), null)
+            }
+        }
+
         editTextRepeatPassword.afterTextChanged { model.password2 = it }
 
         model.isEmailValid.observe(this, Observer { valid ->
@@ -62,11 +72,12 @@ class RegisterStep1Fragment : Fragment() {
     private fun validateFields(): Boolean {
 
         if (!isEmailValid) {
-            editTextEmail.error = "Tu e-mail no es válido"
+            editTextEmail.error = getString(R.string.error_email)
         }
 
         if (!arePasswordsValid) {
-            editTextPassword.error = "Tu contraseña contiene menos de 8 carácteres o no coinciden"
+            editTextPassword.error = getString(R.string.error_password)
+            inputCurrentPassword.isPasswordVisibilityToggleEnabled = false
         }
 
         return isEmailValid && arePasswordsValid
@@ -79,7 +90,8 @@ class RegisterStep1Fragment : Fragment() {
     }
 
     private fun loadFragmentStep2() {
-        fragmentManager?.beginTransaction()?.add(R.id.fragment_container, RegisterStep2Fragment())?.addToBackStack(null)
+        fragmentManager?.beginTransaction()?.add(R.id.fragment_container, RegisterStep2Fragment())
+            ?.addToBackStack(null)
             ?.commit()
     }
 

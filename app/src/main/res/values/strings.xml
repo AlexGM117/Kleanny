@@ -7,6 +7,8 @@
     <string name="password">Contraseña</string>
     <string name="repeat_password">Repetir contraseña</string>
     <string name="create_account">Crear cuenta</string>
+    <string name="error_password">Tu contraseña contiene menos de 8 carácteres o no coincide</string>
+    <string name="error_email">Tu e-mail no es válido</string>
     <!--fragment_register_step1-->
 
     <!--fragment_register_step2-->
@@ -60,6 +62,7 @@
     <string name="new_password">Nueva contraseña</string>
     <string name="repeat_new_password">Confirmar nueva contraseña</string>
     <string name="accept">Aceptar</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
