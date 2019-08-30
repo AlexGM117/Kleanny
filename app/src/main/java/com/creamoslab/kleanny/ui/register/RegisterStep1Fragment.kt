@@ -1,6 +1,5 @@
 package com.creamoslab.kleanny.ui.register
 
-
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
+import com.creamoslab.kleanny.ui.base.AbstractFragment
 import kotlinx.android.synthetic.main.fragment_register_step1.*
 
-class RegisterStep1Fragment : Fragment() {
+class RegisterStep1Fragment : AbstractFragment() {
     private lateinit var model: RegistroViewModel
 
     var isEmailValid = false

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
+import com.creamoslab.kleanny.ui.base.AbstractFragment
 import com.creamoslab.kleanny.ui.register.RegisterStep1Fragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
  * A simple [Fragment] subclass.
  *
  */
-class LoginFragment : Fragment() {
+class LoginFragment : AbstractFragment() {
 
     private val mViewModel: LoginViewModel by lazy {
         ViewModelProviders.of(this).get(LoginViewModel::class.java)
@@ -46,8 +47,10 @@ class LoginFragment : Fragment() {
         }
 
         buttonLogin.setOnClickListener {
+            showProgressDialog()
             mViewModel.makeLoginRequest(inputEmail.editText?.text.toString(),
                 inputPass.editText?.text.toString()).observe(this, Observer {
+                hideProgressDialog()
                 if (it.success || it.message == "Usuario Valido") {
                     startActivity(Intent(activity, HomeActivity::class.java))
                     activity?.finish()

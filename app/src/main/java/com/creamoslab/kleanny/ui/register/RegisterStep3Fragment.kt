@@ -1,7 +1,6 @@
 package com.creamoslab.kleanny.ui.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.LoginFragment
+import com.creamoslab.kleanny.ui.base.AbstractFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_register_step3.*
 
-class RegisterStep3Fragment : Fragment() {
+class RegisterStep3Fragment : AbstractFragment() {
     private lateinit var model: RegistroViewModel
 
     override fun onCreateView(
@@ -25,8 +25,10 @@ class RegisterStep3Fragment : Fragment() {
     }
 
     private fun addDataToModel() {
+        showProgressDialog()
         model.newUserData.telefono = editTextPhone.text.toString()
         model.requestRegisterUser().observe(this, Observer {
+            hideProgressDialog()
             if (it.success && it.message == "Registro Guardado") {
                 returnToLogin()
             } else {
