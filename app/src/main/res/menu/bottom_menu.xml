@@ -4,6 +4,8 @@
             android:icon="@drawable/ic_bottom_search"/>
     <item android:title="@string/bottom_wallet"
             android:icon="@drawable/ic_bottom_wallet"/>
-    <item android:title="@string/bottom_account"
+    <item
+            android:id="@+id/bottom_account"
+            android:title="@string/bottom_account"
             android:icon="@drawable/ic_menu_account"/>
 </menu>
