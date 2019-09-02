@@ -26,7 +26,7 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
         var fragment: Fragment? = null
         var title: String? = null
         when(item.itemId) {
-            R.id.nav_views -> {
+            R.id.nav_visits -> {
                 fragment = MyVisitsFragment()
                 title = item.title.toString()
             }
@@ -38,12 +38,12 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
                 fragment = PrivacyFragment()
                 title = item.title.toString()
             }
-            R.id.nav_settings -> {
-                fragment = SettingsFragment()
+            R.id.nav_help -> {
+                fragment = FaqFragment()
                 title = item.title.toString()
             }
-            R.id.nav_rewards -> {
-                fragment = FaqFragment()
+            R.id.nav_settings -> {
+                fragment = SettingsFragment()
                 title = item.title.toString()
             }
         }
