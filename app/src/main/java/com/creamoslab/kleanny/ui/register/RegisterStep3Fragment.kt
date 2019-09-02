@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.LoginFragment
 import com.creamoslab.kleanny.ui.base.AbstractFragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_register_step3.*
 
 class RegisterStep3Fragment : AbstractFragment() {
@@ -25,30 +24,27 @@ class RegisterStep3Fragment : AbstractFragment() {
     }
 
     private fun addDataToModel() {
-        showProgressDialog()
+        showProgressDialog(buttonContinuar)
         model.newUserData.telefono = editTextPhone.text.toString()
         model.requestRegisterUser().observe(this, Observer {
-            hideProgressDialog()
+            hideProgressDialog(buttonContinuar)
             if (it.success && it.message == "Registro Guardado") {
                 returnToLogin()
             } else {
-                Snackbar.make(
-                    getView()!!,
-                    it.message,
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                showBottomMessage(it.message)
             }
         })
     }
 
     private fun returnToLogin() {
+        showBottomMessage("Ahora puedes Iniciar Sesion")
         fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, LoginFragment())?.commit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_continuar.setOnClickListener {
+        buttonContinuar.setOnClickListener {
             addDataToModel()
         }
     }

@@ -28,7 +28,7 @@ class RegisterStep2Fragment : AbstractFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_continuar.setOnClickListener {
+        buttonContinuar.setOnClickListener {
             addDataToModel()
             loadFragmentStep2()
         }

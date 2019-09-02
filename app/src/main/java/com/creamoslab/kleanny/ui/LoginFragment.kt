@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.base.AbstractFragment
 import com.creamoslab.kleanny.ui.register.RegisterStep1Fragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
@@ -37,6 +36,7 @@ class LoginFragment : AbstractFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val spannableString = SpannableString(resources.getString(R.string.text_sign_up))
         spannableString.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorPrimary)), 22, 28, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         textSignUp.text = spannableString
@@ -47,19 +47,15 @@ class LoginFragment : AbstractFragment() {
         }
 
         buttonLogin.setOnClickListener {
-            showProgressDialog()
+            showProgressDialog(buttonLogin)
             mViewModel.makeLoginRequest(inputEmail.editText?.text.toString(),
                 inputPass.editText?.text.toString()).observe(this, Observer {
-                hideProgressDialog()
+                hideProgressDialog(buttonLogin)
                 if (it.success || it.message == "Usuario Valido") {
                     startActivity(Intent(activity, HomeActivity::class.java))
                     activity?.finish()
                 } else {
-                    Snackbar.make(
-                        getView()!!, // Parent view
-                        it.message, // Message to show
-                        Snackbar.LENGTH_SHORT // How long to display the message.
-                    ).show()
+                    showBottomMessage(it.message)
                 }
             })
         }

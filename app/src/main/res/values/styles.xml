@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,12 +19,17 @@
     </style>
 
     <!--Estilo para los botones de formularios-->
-    <style name="FormsButtonStyle" parent="Base.Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_bg_rounded_corners</item>
+    <style name="FormsButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">@dimen/buttons_radius</item>
         <item name="android:textColor">@color/colorButtonText</item>
         <item name="android:fontFamily">@font/fredoka_one_regular</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:minWidth">@dimen/defaultBtnWidth</item>
+        <item name="android:minHeight">@dimen/defaultBtnHeight</item>
     </style>
 
     <style name="StandardEditTextStyle" parent="Base.V7.Widget.AppCompat.EditText">
