@@ -2,6 +2,8 @@ package com.creamoslab.kleanny.ui
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
+import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,17 +18,21 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.Gravity
 import android.widget.Toast
+import androidx.core.graphics.decodeBitmap
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 import java.io.OutputStream
+import java.lang.Exception
 
 class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     BottomNavigationView.OnNavigationItemSelectedListener {
@@ -55,54 +61,58 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE)
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        val name = "profile_pic"
-//        val imagesFolderName = "DCIM/profile"
-//        var fos : OutputStream? = null
-//        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
-//            val bitmap = data.getParcelableExtra<Bitmap>("BitmapImage")
-//
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//                val resolver = contentResolver
-//                val contentValues = ContentValues()
-//                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-//                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
-//
-//                contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, imagesFolderName)
-//                val imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-//                fos = resolver.openOutputStream(imageUri!!)
-//
-////                TODO: Revisa esto
-////                ContentValues values = new ContentValues();
-////                String filename = System.currentTimeMillis() + ".jpg";
-////
-////                values.put(MediaStore.Images.Media.TITLE, filename);
-////                values.put(MediaStore.Images.Media.DISPLAY_NAME, filename);
-////                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpg");
-////                values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
-////                values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
-////                values.put(MediaStore.Images.Media.RELATIVE_PATH, "PATH/TO/ALBUM");
-////
-////                getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,values);
-//            }
-//
-//            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-//                val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + File.separator + imagesFolderName
-//                val file = File(imagesDir)
-//
-//                if (!file.exists()) {
-//                    file.mkdir()
-//                }
-//
-//                val image = File(imagesDir, "$name.png")
-//                fos = FileOutputStream(image)
-//            }
-//
-//            bitmap?.compress(Bitmap.CompressFormat.PNG, 100, fos)
-//            fos?.flush()
-//            fos?.close()
-//        }
-//    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            val uri = data.data
+            var bitmap: Bitmap? = null
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && uri != null) {
+                val source = ImageDecoder.createSource(this.contentResolver, uri)
+                bitmap = ImageDecoder.decodeBitmap(source)
+            }
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && uri != null) {
+                bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            }
+
+            if (bitmap != null) {
+                saveImageToInternalStorage(bitmap)
+                loadProfilePicture(bitmap)
+            }
+        }
+    }
+
+    private fun loadProfilePicture(bitmap: Bitmap) {
+        navigationView.getHeaderView(0).imageView_profile_photo.setImageBitmap(bitmap)
+    }
+
+    private fun saveImageToInternalStorage(bitmapImage: Bitmap): String {
+        val cw = ContextWrapper(applicationContext)
+        val directory = cw.getDir("imageDir", Context.MODE_PRIVATE)
+
+        val myPath = File(directory, "profile.jpg")
+
+        var fos: FileOutputStream? = null
+
+        try {
+            fos = FileOutputStream(myPath)
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            try {
+                fos?.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        return directory.absolutePath
+    }
+
+    private fun loadImageFromStorage(path: String) {
+        
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment: Fragment? = null
