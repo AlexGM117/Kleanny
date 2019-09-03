@@ -1,44 +1,34 @@
 package com.creamoslab.kleanny.ui
 
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.myaccount.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
-import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.MediaStore
-import android.view.Gravity
-import android.widget.Toast
-import androidx.core.graphics.decodeBitmap
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStream
-import java.lang.Exception
+import java.io.*
 
 class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     BottomNavigationView.OnNavigationItemSelectedListener {
 
     companion object {
-//        día de nacimiento (19), mes (7), número personalizado (01)
+        //        día de nacimiento (19), mes (7), número personalizado (01)
         private const val PICK_IMAGE: Int = 19701
     }
 
@@ -52,6 +42,7 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         navigationView.getHeaderView(0).imageView_profile_photo.setOnClickListener {
             pickImageFromGallery()
         }
+        loadImageFromStorage()
     }
 
     private fun pickImageFromGallery() {
@@ -87,16 +78,11 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         navigationView.getHeaderView(0).imageView_profile_photo.setImageBitmap(bitmap)
     }
 
-    private fun saveImageToInternalStorage(bitmapImage: Bitmap): String {
-        val cw = ContextWrapper(applicationContext)
-        val directory = cw.getDir("imageDir", Context.MODE_PRIVATE)
-
-        val myPath = File(directory, "profile.jpg")
-
+    private fun saveImageToInternalStorage(bitmapImage: Bitmap) {
         var fos: FileOutputStream? = null
 
         try {
-            fos = FileOutputStream(myPath)
+            fos = FileOutputStream(getProfilePicPath())
             bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -107,11 +93,23 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
                 e.printStackTrace()
             }
         }
-        return directory.absolutePath
     }
 
-    private fun loadImageFromStorage(path: String) {
-        
+    private fun getProfilePicPath(): File {
+        val cw = ContextWrapper(applicationContext)
+        val directory = cw.getDir("imageDir", Context.MODE_PRIVATE)
+        return File(directory, "profile.jpg")
+    }
+
+    private fun loadImageFromStorage() {
+        try {
+            val bitmap = BitmapFactory.decodeStream(FileInputStream(getProfilePicPath()))
+            if (bitmap != null) {
+                loadProfilePicture(bitmap)
+            }
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
