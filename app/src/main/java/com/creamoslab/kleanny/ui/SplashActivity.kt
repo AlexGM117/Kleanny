@@ -10,15 +10,15 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
-    private val mTimerToLoadLogin = 2000L
+    private val mTimerToLoadLogin = 3000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-//        Glide.with(this)
-//            .load(R.raw.kleanny_splash_2)
-//            .into(gifView)
+        Glide.with(this)
+            .load(R.raw.kleanny_splash_2)
+            .into(gifView)
 
         Handler().postDelayed({
             loadLoginActivity()
