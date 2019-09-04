@@ -52,4 +52,5 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.github.razir.progressbutton:progressbutton:1.0.3'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+    compile "org.jetbrains.kotlin:kotlin-reflect:1.3.50"
 }

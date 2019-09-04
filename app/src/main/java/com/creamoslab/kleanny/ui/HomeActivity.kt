@@ -127,7 +127,11 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         }
         toolbarTitle.text = title
         if (fragment != null) {
-            fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).addToBackStack(null).commit()
+            val simpleName = fragment::class.simpleName
+
+            if (fragmentManager.findFragmentByTag(simpleName) == null) {
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, simpleName).addToBackStack(null).commit()
+            }
         }
         return true
     }
