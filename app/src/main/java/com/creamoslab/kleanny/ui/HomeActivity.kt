@@ -52,6 +52,7 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
 
         if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
+
             var bitmap: Bitmap? = null
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && uri != null) {
@@ -64,8 +65,10 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
             }
 
             if (bitmap != null) {
-                BitmapManager.saveImageToPreferences(bitmap)
-                loadProfilePicture(Bitmap.createScaledBitmap(bitmap, 120, 120, false))
+                val rotatedBitmap =
+                    uri?.let { BitmapManager.fixBitmap(it, bitmap, applicationContext) } ?: return
+                BitmapManager.saveImageToPreferences(rotatedBitmap)
+                loadProfilePicture(Bitmap.createScaledBitmap(rotatedBitmap, 120, 120, false))
             }
         }
     }
