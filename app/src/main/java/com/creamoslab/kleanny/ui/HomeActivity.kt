@@ -85,6 +85,8 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment: Fragment? = null
         var title: String? = null
+        val fragmentManager = supportFragmentManager
+
         when (item.itemId) {
             R.id.nav_visits -> {
                 fragment = MyVisitsFragment()
@@ -114,11 +116,18 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
             R.id.bottom_account -> {
                 drawer_layout.openDrawer(Gravity.LEFT)
             }
+            R.id.bottom_finder -> {
+                for (i in 0..fragmentManager.backStackEntryCount){
+                    fragmentManager.popBackStackImmediate()
+                }
+            }
+            R.id.bottom_wallet -> {
+
+            }
         }
         toolbarTitle.text = title
         if (fragment != null) {
-            val fragmentManager = supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit()
+            fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).addToBackStack(null).commit()
         }
         return true
     }
