@@ -19,7 +19,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:src="@tools:sample/avatars"/>
+                android:src="@drawable/business_center"/>
 
         <TextView
                 android:id="@+id/textView_place_title"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:maxLines="1"
                 app:layout_constraintStart_toEndOf="@id/imageView_place"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
                 app:layout_constraintTop_toBottomOf="@id/textView_your_score"
                 app:layout_constraintEnd_toStartOf="@id/guideline_texts"
                 app:layout_constraintStart_toEndOf="@id/imageView_place"
-                tools:text="Has dado 3"/>
+                android:text="Has dado 3"/>
 
         <TextView
                 android:id="@+id/textView_distance"
@@ -103,6 +103,6 @@
                 app:layout_constraintTop_toBottomOf="@id/textView_distance"
                 app:layout_constraintStart_toEndOf="@id/guideline_texts"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:text="3.5 Km"/>
+                android:text="3.5 Km"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

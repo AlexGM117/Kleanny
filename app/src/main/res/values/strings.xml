@@ -36,11 +36,11 @@
     <string name="text_sign_up">¿No estas registrado? ¡Únete!</string>
     <!--fragment_login-->
 
-    <!--item your visits-->
+    <!--items your visits-->
     <string name="your_score">Tu Puntuación</string>
     <string name="distance">DISTANCIA</string>
     <string name="privacy_policy">Aviso de Privacidad</string>
-    <!--item your visits-->
+    <!--items your visits-->
 
     <!--fragment_faq-->
     <string name="faq_title">Preguntas Frecuentes</string>
