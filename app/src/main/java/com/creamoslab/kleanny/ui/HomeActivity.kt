@@ -1,11 +1,8 @@
 package com.creamoslab.kleanny.ui
 
 import android.app.Activity
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.os.Build
 import android.os.Bundle
@@ -22,7 +19,6 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
-import java.io.*
 
 class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     BottomNavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +38,7 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         navigationView.getHeaderView(0).imageView_profile_photo.setOnClickListener {
             pickImageFromGallery()
         }
-        loadImageFromStorage()
+        loadImageFromStorageAndShow()
     }
 
     private fun pickImageFromGallery() {
@@ -68,8 +64,8 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
             }
 
             if (bitmap != null) {
-                saveImageToInternalStorage(bitmap)
-                loadProfilePicture(bitmap)
+                BitmapManager.saveImageToPreferences(bitmap)
+                loadProfilePicture(Bitmap.createScaledBitmap(bitmap, 120, 120, false))
             }
         }
     }
@@ -78,38 +74,9 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         navigationView.getHeaderView(0).imageView_profile_photo.setImageBitmap(bitmap)
     }
 
-    private fun saveImageToInternalStorage(bitmapImage: Bitmap) {
-        var fos: FileOutputStream? = null
-
-        try {
-            fos = FileOutputStream(getProfilePicPath())
-            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        } finally {
-            try {
-                fos?.close()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun getProfilePicPath(): File {
-        val cw = ContextWrapper(applicationContext)
-        val directory = cw.getDir("imageDir", Context.MODE_PRIVATE)
-        return File(directory, "profile.jpg")
-    }
-
-    private fun loadImageFromStorage() {
-        try {
-            val bitmap = BitmapFactory.decodeStream(FileInputStream(getProfilePicPath()))
-            if (bitmap != null) {
-                loadProfilePicture(bitmap)
-            }
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        }
+    private fun loadImageFromStorageAndShow() {
+        val bitmap = BitmapManager.loadImageFromPreferences()
+        bitmap?.let { loadProfilePicture(it) }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
