@@ -73,7 +73,7 @@ class BitmapManager  {
 
             orientation?.let {
                 rotation = when (it) {
-                    ExifInterface.ORIENTATION_ROTATE_90 -> 90f //girar 90 a la izquierda
+                    ExifInterface.ORIENTATION_ROTATE_90 -> 270f //girar 90 a la izquierda
                     ExifInterface.ORIENTATION_ROTATE_180 -> 180f //girar 180
                     ExifInterface.ORIENTATION_ROTATE_270 -> 90f //girar 90 a la izquierda
                     else -> 0f
