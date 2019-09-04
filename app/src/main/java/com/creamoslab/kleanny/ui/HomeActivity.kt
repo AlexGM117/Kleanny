@@ -89,22 +89,27 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
             R.id.nav_visits -> {
                 fragment = MyVisitsFragment()
                 title = item.title.toString()
+                drawer_layout.closeDrawer(Gravity.LEFT)
             }
             R.id.nav_account -> {
                 fragment = MyAccountInfoFragment()
                 title = item.title.toString()
+                drawer_layout.closeDrawer(Gravity.LEFT)
             }
             R.id.nav_privacy -> {
                 fragment = PrivacyFragment()
                 title = item.title.toString()
+                drawer_layout.closeDrawer(Gravity.LEFT)
             }
             R.id.nav_help -> {
                 fragment = FaqFragment()
                 title = item.title.toString()
+                drawer_layout.closeDrawer(Gravity.LEFT)
             }
             R.id.nav_settings -> {
                 fragment = SettingsFragment()
                 title = item.title.toString()
+                drawer_layout.closeDrawer(Gravity.LEFT)
             }
             R.id.bottom_account -> {
                 drawer_layout.openDrawer(Gravity.LEFT)
