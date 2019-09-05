@@ -129,9 +129,10 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
         if (fragment != null) {
             val simpleName = fragment::class.simpleName
 
-            if (fragmentManager.findFragmentByTag(simpleName) == null) {
-                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, simpleName).addToBackStack(null).commit()
-            }
+//            if (fragmentManager.findFragmentByTag(simpleName) == null) {
+//                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, simpleName).addToBackStack(null).commit()
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment, simpleName).commit()
+//            }
         }
         return true
     }
@@ -144,5 +145,13 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
 
     override fun onSupportNavigateUp(): Boolean {
         return super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.fragments.size > 0) {
+            supportFragmentManager.beginTransaction().remove(supportFragmentManager.fragments[0]).commit()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
