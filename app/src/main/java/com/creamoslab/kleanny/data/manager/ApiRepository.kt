@@ -19,4 +19,11 @@ class ApiRepository : BaseRepository() {
             call = {KleannyClient.getInstance().login(request).await()},
             errorMessage = genericMessage)
     }
+
+    suspend fun makeRequest() : BaseResponse<Nothing>?{
+        return safeApiCall(
+            call = {KleannyClient.getInstance().changePass().await()},
+            errorMessage = genericMessage
+        )
+    }
 }

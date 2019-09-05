@@ -13,7 +13,7 @@ open class BaseRepository {
                 return result.data
             }
 
-            is Result.Error -> return BaseResponse<T>(false, 1, errorMessage)
+            is Result.Error -> return BaseResponse<T>(false, 1, errorMessage, null)
         }
     }
 

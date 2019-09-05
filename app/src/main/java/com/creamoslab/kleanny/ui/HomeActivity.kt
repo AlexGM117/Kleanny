@@ -148,10 +148,14 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.fragments.size > 0) {
-            supportFragmentManager.beginTransaction().remove(supportFragmentManager.fragments[0]).commit()
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStackImmediate()
         } else {
-            super.onBackPressed()
+            if (supportFragmentManager.fragments.size > 0) {
+                supportFragmentManager.beginTransaction().remove(supportFragmentManager.fragments[0]).commit()
+            } else {
+                super.onBackPressed()
+            }
         }
     }
 }

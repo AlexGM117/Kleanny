@@ -14,4 +14,7 @@ interface KleannyService {
 
     @POST("Login")
     fun login(@Body request: LoginRequest) : Deferred<Response<BaseResponse<Nothing>>>
+
+    @POST("CambiaPassword")
+    fun changePass() : Deferred<Response<BaseResponse<Nothing>>>
 }
