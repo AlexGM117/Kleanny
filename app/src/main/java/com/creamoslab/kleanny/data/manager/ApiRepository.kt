@@ -1,6 +1,8 @@
 package com.creamoslab.kleanny.data.manager
 
 import com.creamoslab.kleanny.api.KleannyClient
+import com.creamoslab.kleanny.data.model.UsuarioCredenciales
+import com.creamoslab.kleanny.data.remote.request.ChangePassRequest
 import com.creamoslab.kleanny.data.remote.request.LoginRequest
 import com.creamoslab.kleanny.data.remote.request.SignUpRequest
 import com.creamoslab.kleanny.data.remote.response.BaseResponse
@@ -20,9 +22,9 @@ class ApiRepository : BaseRepository() {
             errorMessage = genericMessage)
     }
 
-    suspend fun makeRequest() : BaseResponse<Nothing>?{
+    suspend fun makeRequest(request: UsuarioCredenciales) : BaseResponse<Nothing>?{
         return safeApiCall(
-            call = {KleannyClient.getInstance().changePass().await()},
+            call = {KleannyClient.getInstance().changePass(ChangePassRequest("Colombia", request)).await()},
             errorMessage = genericMessage
         )
     }

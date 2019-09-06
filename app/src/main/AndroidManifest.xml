@@ -14,6 +14,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDkj-BbZ_iOy6FEu6t6yOsZ8UdXW16BLOw" />
+
         <activity
                 android:name=".ui.HomeActivity"
                 android:label="" />

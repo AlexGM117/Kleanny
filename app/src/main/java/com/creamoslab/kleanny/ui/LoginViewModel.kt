@@ -12,7 +12,10 @@ class LoginViewModel : BaseViewModel() {
 
     fun makeLoginRequest(email: String, pass: String) : LiveData<BaseResponse<Nothing>> {
         val result = MutableLiveData<BaseResponse<Nothing>>()
-        val request = LoginRequest("Colombia", UsuarioCredenciales(email, pass))
+        val usuarioCredenciales = UsuarioCredenciales()
+        usuarioCredenciales.correoelectronico = email
+        usuarioCredenciales.usuariopassword = pass
+        val request = LoginRequest("Colombia", usuarioCredenciales)
         scope.launch {
             result.postValue(repository.makeRequest(request))
         }

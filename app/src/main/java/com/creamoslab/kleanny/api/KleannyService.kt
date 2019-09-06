@@ -1,5 +1,6 @@
 package com.creamoslab.kleanny.api
 
+import com.creamoslab.kleanny.data.remote.request.ChangePassRequest
 import com.creamoslab.kleanny.data.remote.request.LoginRequest
 import com.creamoslab.kleanny.data.remote.request.SignUpRequest
 import com.creamoslab.kleanny.data.remote.response.BaseResponse
@@ -16,5 +17,5 @@ interface KleannyService {
     fun login(@Body request: LoginRequest) : Deferred<Response<BaseResponse<Nothing>>>
 
     @POST("CambiaPassword")
-    fun changePass() : Deferred<Response<BaseResponse<Nothing>>>
+    fun changePass(@Body request: ChangePassRequest) : Deferred<Response<BaseResponse<Nothing>>>
 }

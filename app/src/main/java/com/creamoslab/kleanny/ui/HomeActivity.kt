@@ -117,12 +117,9 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
                 drawer_layout.openDrawer(Gravity.LEFT)
             }
             R.id.bottom_finder -> {
-                for (i in 0..fragmentManager.backStackEntryCount){
-                    fragmentManager.popBackStackImmediate()
-                }
+                fragment = MapFragment()
             }
             R.id.bottom_wallet -> {
-
             }
         }
         toolbarTitle.text = title
@@ -148,14 +145,19 @@ class HomeActivity : AppCompatActivity(), OnNavigationItemSelectedListener,
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 1) {
+        if (supportFragmentManager.backStackEntryCount > 0) {
             supportFragmentManager.popBackStackImmediate()
         } else {
             if (supportFragmentManager.fragments.size > 0) {
+                clearToolbar()
                 supportFragmentManager.beginTransaction().remove(supportFragmentManager.fragments[0]).commit()
             } else {
                 super.onBackPressed()
             }
         }
+    }
+
+    private fun clearToolbar(){
+        toolbarTitle.text = ""
     }
 }
