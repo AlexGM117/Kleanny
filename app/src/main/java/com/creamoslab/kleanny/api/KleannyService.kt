@@ -4,6 +4,7 @@ import com.creamoslab.kleanny.data.remote.request.ChangePassRequest
 import com.creamoslab.kleanny.data.remote.request.LoginRequest
 import com.creamoslab.kleanny.data.remote.request.SignUpRequest
 import com.creamoslab.kleanny.data.remote.response.BaseResponse
+import com.creamoslab.kleanny.data.remote.response.LoginResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.Body
@@ -14,7 +15,7 @@ interface KleannyService {
     fun doSignUp(@Body request: SignUpRequest) : Deferred<Response<BaseResponse<Nothing>>>
 
     @POST("Login")
-    fun login(@Body request: LoginRequest) : Deferred<Response<BaseResponse<Nothing>>>
+    fun login(@Body request: LoginRequest) : Deferred<Response<BaseResponse<LoginResponse>>>
 
     @POST("CambiaPassword")
     fun changePass(@Body request: ChangePassRequest) : Deferred<Response<BaseResponse<Nothing>>>

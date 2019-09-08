@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.creamoslab.kleanny.R
+import com.creamoslab.kleanny.ui.base.AbstractFragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -13,7 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment
 /**
  * A simple [Fragment] subclass.
  */
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : AbstractFragment(), OnMapReadyCallback {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

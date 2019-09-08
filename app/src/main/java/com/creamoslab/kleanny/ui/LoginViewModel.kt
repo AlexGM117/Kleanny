@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import com.creamoslab.kleanny.data.model.UsuarioCredenciales
 import com.creamoslab.kleanny.data.remote.request.LoginRequest
 import com.creamoslab.kleanny.data.remote.response.BaseResponse
+import com.creamoslab.kleanny.data.remote.response.LoginResponse
 import com.creamoslab.kleanny.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class LoginViewModel : BaseViewModel() {
 
-    fun makeLoginRequest(email: String, pass: String) : LiveData<BaseResponse<Nothing>> {
-        val result = MutableLiveData<BaseResponse<Nothing>>()
+    fun makeLoginRequest(email: String, pass: String) : LiveData<BaseResponse<LoginResponse>> {
+        val result = MutableLiveData<BaseResponse<LoginResponse>>()
         val usuarioCredenciales = UsuarioCredenciales()
         usuarioCredenciales.correoelectronico = email
         usuarioCredenciales.usuariopassword = pass

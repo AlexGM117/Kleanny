@@ -46,8 +46,9 @@ class LoginFragment : AbstractFragment() {
             mViewModel.makeLoginRequest(inputEmail.editText?.text.toString(),
                 inputPass.editText?.text.toString()).observe(this, Observer {
                 hideProgressDialog(buttonLogin)
-                if (it.success || it.message == "Usuario Valido") {
-                    KleannyPreferences().email = inputEmail.editText?.text.toString()
+                if (it.success || it.data != null) {
+                    if (KleannyPreferences().email.isNullOrEmpty())
+                        KleannyPreferences().email = it.data?.correo
                     startActivity(Intent(activity, HomeActivity::class.java))
                     activity?.finish()
                 } else {

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.creamoslab.kleanny.R
 import com.creamoslab.kleanny.ui.myaccount.*
+import com.creamoslab.kleanny.ui.utils.BitmapManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 import kotlinx.android.synthetic.main.activity_home.*

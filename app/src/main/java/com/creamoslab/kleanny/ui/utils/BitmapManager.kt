@@ -1,4 +1,4 @@
-package com.creamoslab.kleanny.ui
+package com.creamoslab.kleanny.ui.utils
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -62,7 +62,10 @@ class BitmapManager  {
                 ExifInterface.ORIENTATION_NORMAL
             )
 
-            return rotateBitmap(bitmap, orientation)
+            return rotateBitmap(
+                bitmap,
+                orientation
+            )
         }
 
         private fun rotateBitmap(
@@ -89,7 +92,8 @@ class BitmapManager  {
     private class AsyncSave : AsyncTask<Bitmap, Void, Void>() {
 
         override fun doInBackground(vararg bitmapImage: Bitmap): Void? {
-            KleannyPreferences().encodedBitmap = BitmapEncoder.encodeBitmap(bitmapImage[0])
+            KleannyPreferences().encodedBitmap =
+                BitmapEncoder.encodeBitmap(bitmapImage[0])
             return null
         }
     }

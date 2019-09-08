@@ -1,4 +1,4 @@
-package com.creamoslab.kleanny.ui
+package com.creamoslab.kleanny.ui.utils
 
 import android.graphics.Bitmap
 import android.util.Base64

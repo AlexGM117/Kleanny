@@ -6,6 +6,7 @@ import com.creamoslab.kleanny.data.remote.request.ChangePassRequest
 import com.creamoslab.kleanny.data.remote.request.LoginRequest
 import com.creamoslab.kleanny.data.remote.request.SignUpRequest
 import com.creamoslab.kleanny.data.remote.response.BaseResponse
+import com.creamoslab.kleanny.data.remote.response.LoginResponse
 
 class ApiRepository : BaseRepository() {
     val genericMessage = "Por el momento el servicio no esta disponible."
@@ -16,7 +17,7 @@ class ApiRepository : BaseRepository() {
             errorMessage = genericMessage)
     }
 
-    suspend fun makeRequest(request: LoginRequest) : BaseResponse<Nothing>?{
+    suspend fun makeRequest(request: LoginRequest) : BaseResponse<LoginResponse>?{
         return safeApiCall(
             call = {KleannyClient.getInstance().login(request).await()},
             errorMessage = genericMessage)

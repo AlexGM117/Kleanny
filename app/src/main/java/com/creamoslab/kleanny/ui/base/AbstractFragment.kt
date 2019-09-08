@@ -1,8 +1,12 @@
 package com.creamoslab.kleanny.ui.base
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -25,6 +29,16 @@ abstract class AbstractFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.setOnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                println("touch screen")
+                activity?.let {
+                    it.hideKeyboard(view)
+                }
+            }
+            true
+        }
     }
 
     fun showProgressDialog(button: Button) {
@@ -50,5 +64,10 @@ abstract class AbstractFragment : Fragment() {
             message,
             Snackbar.LENGTH_SHORT
         ).show()
+    }
+
+    fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
