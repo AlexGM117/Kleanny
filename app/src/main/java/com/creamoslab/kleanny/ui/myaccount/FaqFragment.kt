@@ -23,6 +23,7 @@ class FaqFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListeners()
+        faqWebView.loadUrl("file:///android_res/raw/faqs.html")
     }
 
     private fun setListeners() {
