@@ -84,7 +84,7 @@ class RegisterStep1Fragment : AbstractFragment() {
 
     private fun addDataToModel() {
         model.newUser.correo = editTextEmail.text!!.trim().toString()
-        model.newUser.contraseña = editTextPassword.text.toString()
+        model.newUser.password = editTextPassword.text.toString()
         model.newUser.fecha = ""
     }
 

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/margin_fragments"
-        tools:context=".ui.myaccount.FaqFragment">
+        android:background="@android:color/white">
 
     <LinearLayout
             android:id="@+id/linearLayout_faq"
@@ -37,65 +37,13 @@
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/shape_round_corners_items"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_height="250dp"
+                android:padding="10dp">
 
-            <TextView
+            <WebView
+                    android:id="@+id/faqWebView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/faq1"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/shape_round_corners_items"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/faq2"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/shape_round_corners_items"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/faq3"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/shape_round_corners_items"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/faq4"/>
+                    android:layout_height="match_parent" />
 
         </LinearLayout>
 

@@ -35,11 +35,11 @@ class RegisterStep2Fragment : AbstractFragment() {
     }
 
     private fun addDataToModel() {
-        model.newUserData.dni = editTextDni.text.toString()
-        model.newUserData.nombre = editTextName.text.toString()
-        model.newUserData.primerApellido = editTextFirstLastName.text.toString()
-        model.newUserData.segundoApellido = editTextSecondLastName.text.toString()
-        model.newUserData.direccion = editTextAddress.text.toString()
+        model.newUser.dni = editTextDni.text.toString()
+        model.newUser.nombre = editTextName.text.toString()
+        model.newUser.primerApellido = editTextFirstLastName.text.toString()
+        model.newUser.segundoApellido = editTextSecondLastName.text.toString()
+        model.newUser.direccion = editTextAddress.text.toString()
     }
 
     private fun loadFragmentStep2() {

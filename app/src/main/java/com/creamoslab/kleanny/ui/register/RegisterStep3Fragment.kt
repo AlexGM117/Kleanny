@@ -25,7 +25,7 @@ class RegisterStep3Fragment : AbstractFragment() {
 
     private fun addDataToModel() {
         showProgressDialog(buttonContinuar)
-        model.newUserData.telefono = editTextPhone.text.toString()
+        model.newUser.telefono = editTextPhone.text.toString()
         model.requestRegisterUser().observe(this, Observer {
             hideProgressDialog(buttonContinuar)
             if (it.success && it.message == "Registro Guardado") {
