@@ -13,7 +13,7 @@
     <!--fragment_register_step1-->
 
     <!--fragment_register_step2-->
-    <string name="dni">DNI</string>
+    <string name="dni">Número de Documento</string>
     <string name="name">Nombre</string>
     <string name="first_last_name">Primer apellido</string>
     <string name="second_last_name">Segundo apellido</string>
