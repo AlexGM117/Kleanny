@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -20,6 +21,8 @@ import kotlinx.android.synthetic.main.fragment_register_step2.*
  */
 class RegisterStep2Fragment : AbstractFragment() {
     private lateinit var model: RegistroViewModel
+
+    private val listOfItems = arrayOf("CC", "CE", "TI", "NIT", "PA")
 
     private var isDocumentNumberValid = false
     private var isNameValid = false
@@ -38,6 +41,7 @@ class RegisterStep2Fragment : AbstractFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setSpinnerItems()
         setFieldsListeners()
         buttonContinuar.setOnClickListener {
             if (validateFields()) {
@@ -45,6 +49,12 @@ class RegisterStep2Fragment : AbstractFragment() {
                 loadFragmentStep2()
             }
         }
+    }
+
+    private fun setSpinnerItems() {
+        val adapter = ArrayAdapter(context!!, android.R.layout.simple_spinner_item, listOfItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
     }
 
     private fun setFieldsListeners() {
